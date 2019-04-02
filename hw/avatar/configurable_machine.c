@@ -313,7 +313,7 @@ static void init_memory_area(QDict *mapping, const char *kernel_filename)
           g_assert(qobject_type(qdict_get(mapping, "file_offset")) == QTYPE_QINT);
           file_offset = qdict_get_int(mapping, "file_offset");
           sbytes = lseek(file,file_offset,SEEK_SET);
-          g_assert(sbytes > 0);
+          g_assert(sbytes != -1);
           data_size -= sbytes;
 
         }
